@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Chronomoxy – Watches, photos, and short essays&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="Chronomoxy – a small watch journal: photos, short essays, and gear notes." /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--bg:#0b0c0f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--panel:#12141a;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--text:#e9e9ee;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--muted:#b6bac6;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--line:rgba(255,255,255,.08);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--accent:#8ab4f8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--accent2:#7ee7c0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--max:980px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--radius:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--shadow: 0 10px 30px rgba(0,0,0,.35);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>*{box-sizing:border-box}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>html{scroll-behavior:smooth}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family:var(--sans);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: radial-gradient(1200px 600px at 25% 0%, rgba(138,180,248,.18), transparent 60%),</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>radial-gradient(900px 500px at 75% 10%, rgba(126,231,192,.12), transparent 60%),</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.6;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>a{color:inherit; text-decoration:none}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.wrap{max-width:var(--max); margin:0 auto; padding:32px 18px 70px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:sticky; top:0; z-index:50;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(10px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(11,12,15,.65);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.topbar{max-width:var(--max); margin:0 auto; padding:14px 18px; display:flex; align-items:center; gap:14px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.brand{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; align-items:baseline; gap:10px; flex:1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.brand h1{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0; font-size:16px; letter-spacing:.12em; text-transform:uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tag{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nav{display:flex; gap:14px; align-items:center}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nav a{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:8px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nav a:hover{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.04);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: var(--radius);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero h2{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0 0 8px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:28px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:.01em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero p{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 70ch;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.pillrow{margin-top:14px; display:flex; flex-wrap:wrap; gap:10px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.pill{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family:var(--mono);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:rgba(233,233,238,.9);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.03);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:7px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section-title{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:34px 0 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; align-items:baseline; justify-content:space-between; gap:12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section-title h3{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:.14em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform:uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:rgba(233,233,238,.85);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section-title span{color:var(--muted); font-size:13px}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.grid{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(12, 1fr);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-column: span 6;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(18,20,26,.8);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: var(--radius);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: transform .18s ease, border-color .18s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card:hover{transform: translateY(-2px); border-color: rgba(138,180,248,.35)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.thumb{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>aspect-ratio: 16/9;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>object-fit:cover;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:#0f1116;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-body{padding:14px 14px 16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-body h4{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0 0 6px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.meta{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btnrow{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:inline-flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:9px 11px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.03);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:rgba(233,233,238,.9);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn:hover{border-color: rgba(126,231,192,.35)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn strong{font-weight:600}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.dot{opacity:.5}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>article{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:26px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(18,20,26,.65);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: var(--radius);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.article-head{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:18px 18px 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.article-head h2{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:.01em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.specs{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:10px 0 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family:var(--mono);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.article-img{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-height:520px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>object-fit:cover;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:#0f1116;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.content{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 82ch;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.content h3{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:22px 0 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:.08em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform:uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:rgba(233,233,238,.9);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.content p{margin:0 0 14px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.content .note{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-left: 3px solid rgba(138,180,248,.55);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-left: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:34px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-top:18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 860px){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.card{grid-column: span 12}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero h2{font-size:24px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="topbar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="brand"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1&gt;Chronomoxy&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="tag"&gt;Watches – photos – short essays&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#latest"&gt;Latest&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#articles"&gt;Articles&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#about"&gt;About&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;main class="wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="hero" id="top"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;A small watch journal.&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Photos, specs, and short essays – mostly about pieces I’ve owned, worn, and learned from. Minimal, practical, and occasionally sentimental.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="pillrow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="pill"&gt;No ads&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="pill"&gt;No trackers&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="pill"&gt;Static site&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="pill"&gt;GitHub Pages-ready&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section-title" id="latest"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;Latest&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span&gt;Quick index – click “Read” to jump&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="grid" aria-label="Article index"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Card 1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="card" href="#speedmaster-3539"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img class="thumb" src="images/speedmaster-3539.jpg" alt="Omega Speedmaster Automatic 3539.50" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Omega Speedmaster Automatic 3539.50&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;39 mm&lt;/span&gt;&lt;span class="dot"&gt;•&lt;/span&gt;&lt;span&gt;100 m WR&lt;/span&gt;&lt;span class="dot"&gt;•&lt;/span&gt;&lt;span&gt;Sapphire&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="btnrow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="btn"&gt;&lt;strong&gt;Read&lt;/strong&gt; ↓&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="btn"&gt;Chronograph&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Card 2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="card" href="#mini-turtle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img class="thumb" src="images/seiko-mini-turtle.jpg" alt="Seiko Prospex PADI Mini Turtle SRPC41J1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Seiko Prospex PADI “Mini Turtle” SRPC41J1&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;42.3 mm&lt;/span&gt;&lt;span class="dot"&gt;•&lt;/span&gt;&lt;span&gt;200 m WR&lt;/span&gt;&lt;span class="dot"&gt;•&lt;/span&gt;&lt;span&gt;Hardlex&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="btnrow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="btn"&gt;&lt;strong&gt;Read&lt;/strong&gt; ↓&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="btn"&gt;Dive&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Card 3 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="card" href="#skx013"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img class="thumb" src="images/seiko-skx013.jpg" alt="Seiko SKX013" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Seiko SKX013&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;38 mm&lt;/span&gt;&lt;span class="dot"&gt;•&lt;/span&gt;&lt;span&gt;200 m WR&lt;/span&gt;&lt;span class="dot"&gt;•&lt;/span&gt;&lt;span&gt;Hardlex&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="btnrow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="btn"&gt;&lt;strong&gt;Read&lt;/strong&gt; ↓&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="btn"&gt;Dive&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Card 4 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="card" href="#awci-boston"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img class="thumb" src="images/awci-build-a-watch.jpg" alt="Build a Watch Event – AWCI Boston" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Build a Watch Event – AWCI Boston, MA&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;ETA 6497&lt;/span&gt;&lt;span class="dot"&gt;•&lt;/span&gt;&lt;span&gt;Hand-wound&lt;/span&gt;&lt;span class="dot"&gt;•&lt;/span&gt;&lt;span&gt;46 hr PR&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="btnrow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="btn"&gt;&lt;strong&gt;Read&lt;/strong&gt; ↓&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="btn"&gt;Experience&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Card 5 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="card" href="#hamilton-khaki"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img class="thumb" src="images/hamilton-khaki-white.jpg" alt="Hamilton Khaki Field Mechanical H69439411" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Hamilton Khaki Field Mechanical H69439411&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;38 mm&lt;/span&gt;&lt;span class="dot"&gt;•&lt;/span&gt;&lt;span&gt;80 hr PR&lt;/span&gt;&lt;span class="dot"&gt;•&lt;/span&gt;&lt;span&gt;Sapphire&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="btnrow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="btn"&gt;&lt;strong&gt;Read&lt;/strong&gt; ↓&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="btn"&gt;Field&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section-title" id="articles"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;Articles&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span&gt;Full text below&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- ARTICLE 1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;article id="speedmaster-3539"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="article-head"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Omega Speedmaster Automatic 3539.50&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="specs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;39 mm case&lt;/span&gt;&lt;span&gt;18 mm lug width&lt;/span&gt;&lt;span&gt;12.8 mm thick&lt;/span&gt;&lt;span&gt;44.5 mm lug-to-lug&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Sapphire&lt;/span&gt;&lt;span&gt;100 m water resistance&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img class="article-img" src="images/speedmaster-3539.jpg" alt="Omega Speedmaster Automatic 3539.50 photo" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;My journey with the Speedmaster began when I was looking for my first luxury timepiece. I’d just started exploring mechanical watches and had been rotating between a Hamilton Jazzmaster Viewmatic 37 (H32455557) and a 1964 Omega Seamaster (reference 165.002). I wanted to add a versatile piece to my collection – one that I could wear at the office and on the weekends. I was seeking out a well-designed piece; something with heritage, class, and value.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Switzerland vs Germany&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;I flirted with the possibility of picking up a Sinn 556i or 556a because of my appreciation for German design and masculine dials. The 556i looked new, minimal, and had a top-grade Swiss movement. It had a rugged no-nonsense toolwatch presence with a glossy black dial and thick indices. The 556a variant had a unique 4:00 date window that was “corrected” so that it always displayed horizontally, a subtle detail indicative of the nature of those behind it. Both had a caseback that revealed the beautifully displayed top-grade ETA 2824-2 movement with blued screws, swirling perlage effect, and the modified Sinn gold rotor. It made total sense to buy a brand new Sinn; my logical brain had already made a decision, but as with all decisions, the heart has a say.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Variations of the Reduced&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;I began my search for the Speedmaster “Reduced” poking around in the usual places: eBay, Chrono24, and Reddit’s Watchexchange, but nothing was catching my eye. Since it was not a new release, I needed to navigate this journey with all of the cautions involved with seeking out a pre-owned timepiece. I had discovered that two models were readily available: the older 3510.50 variant with hesalite acrylic crystal and minutes on the dial, and the newer and rarer 3539.50 variant with sapphire crystal and indices that mirror the classic Speedmaster design. From an aesthetic standpoint there was no question that the latter suited my taste a bit better and was overall the better watch.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Every collection needs a chronograph, and what better chronograph than a Speedy? Yes, the Speedmaster Automatic would be more difficult to service and cost twice the price of the Sinns, but from all of the photos I had looked at it appeared as though the Speedmaster would fit my wrist better – both tangibly and figuratively.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Journey to Japan&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Through various forums I learned about eLady, a second-hand Japanese accessories store that had a reputation for reliability and authenticity. At the time, eLady updated its inventory every Monday and so for a couple of months every week of mine started with an inventory check. My requirements were that the watch must have an “A grade” ranking and include a clean inner and outer box, warranty cards, and manual.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;After sifting through what seemed to be a million used 3510.50 models (most without boxes and some with boxes that appeared to have been submerged in saltwater for a decade), I finally found an unpolished near-mint condition 3539.50 with bracelet, box, and papers. It was the best looking one I had seen for a fantastic price – and upon delivery it turned out to be virtually brand new. The only flaw was a microscopic ding in the tachymeter at 65 (which was visible in the photos). For well under 2k I am glad I bought it, as prices have skyrocketed since then. My only fear is that it may cost somewhere in the ballpark of $750 to be serviced by Omega (mainly due to the piggyback chronograph which is basically disposable), but since it’s from 2012 I’ll likely run it until something goes terribly wrong.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="note"&gt;&lt;a href="#top"&gt;↑ Back to top&lt;/a&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- ARTICLE 2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;article id="mini-turtle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="article-head"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Seiko Prospex PADI “Mini Turtle” SRPC41J1&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="specs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;42.3 mm case&lt;/span&gt;&lt;span&gt;20 mm lug width&lt;/span&gt;&lt;span&gt;13 mm thick&lt;/span&gt;&lt;span&gt;42.5 mm lug-to-lug&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Hardlex&lt;/span&gt;&lt;span&gt;200 m water resistance&lt;/span&gt;&lt;span&gt;Hacking&lt;/span&gt;&lt;span&gt;Automatic&lt;/span&gt;&lt;span&gt;Hand-winding&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img class="article-img" src="images/seiko-mini-turtle.jpg" alt="Seiko Prospex PADI Mini Turtle SRPC41J1 photo" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;To replace my SKX013, I decided on a whim (which essentially means I only researched it for about a month) to nab the SRPC41J1 from Gnomon Watches. At just under $400, I found the Mini Turtle to be a more than reasonable value considering it’s competition from brands like Hamilton, Squale, and Steinhart. And combined with a smaller case design similar in wearability to the SKX013, Seiko knew what they were doing with this one.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Strap replacement&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Right out of the box I traded the included blue rubber strap for a grey-stitch patterned sailcloth band. Rubber to me always feels a bit stuffy and since I plan to wear this guy mainly in the summer, I felt sailcloth to be a the natural choice.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Of all of the canvas/sailcloth style straps I’ve tried, I prefer the straps offered at iWantAStrap.com. Due to the lack of leather backing, these bands are far more breathable than the multi-layered offerings from the likes of Hadley-Roma and Hirsch. They do take awhile to break in, but in my opinion they are a perfect combination of texture and length; rugged and canvas-like, they lie somewhere between a short and medium length which avoids the issue of too much excess after buckling it on the wrist.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;SKX013 comparison&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;&lt;strong&gt;Hand-winding&lt;/strong&gt; – As the SKX013 was a go-to casual piece in my collection, I frequently had to do the “Seiko shuffle” to get it going after the power reserve had run it’s course, so I wanted something that I could just wind a few times and go. The crown action feels good on both; the Turtle feels a tad bit tighter on the date-wheel, but there is a millimeter or so “delay” before setting the time that is not noticeable on the SKX013. Could just be this particular unit, but it’s only a slight annoyance.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;&lt;strong&gt;No day window&lt;/strong&gt; – I hate day/date complications and I hate setting them. Never, ever have I looked at my watch to find out what day it was. It’s an extraneous feature that also interferes with dial symmetry. And in a perfect world, the Turtle would have no day or date function (it’s a casual watch!) but I’m ok with it the solitary date complication, which gives it a leg up on the SKX013. It’s cliché, but sometimes less is more. The Mini Turtle also has the hotly-debated date-magnifier window on the crystal; I don’t mind it, but it is something to note for those who find it’s presence to be a deal-breaker.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;&lt;strong&gt;Size&lt;/strong&gt; – Although it’s the largest watch in my collection, the Mini Turtle wears wonderfully for a piece above that sweet 40 mm spot. The 42.3 mm turtle-shell shaped design and shorter 42.5 mm lug-to-lug distance makes it wear smaller than it sounds. The only issue I have with it is that it can be even tougher to fit under long-sleeved shirts than the SKX013 (same height, but it just seems to catch my sleeves more often).&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;&lt;strong&gt;Made in Japan&lt;/strong&gt; – Does it really matter? I don’t know. Maybe it just feels better psychologically, but since they are marketed as professional dive watches, it seems fitting that all of the PADI variants are made in Japan. As for the SKX013, I have never had the opportunity to compare a Korean-made SKX013K to a Japanese-made SKX013J in person. You will find varying opinions on this on the internets, but I can’t really offer any hands-on input.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;&lt;strong&gt;Dat dial&lt;/strong&gt; – With far more attention to detail than the SKX013, the dial is a huge part of what makes this watch look upscale. Paired with the “Pepsi” bezel, the dial serves as a stunning wavy-textured backdrop for the syringe hour-hand and red arrowed minutes-hand. The red minute markers on the chapter ring at 12, 3, 6 and 9 make for a nice touch to complement the bezel. The LumiBrite on the hands and indices look fantastic after just a few seconds in sunlight and appears to last longer than the lume on the SKX013.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;If I could sum up the comparison in one word it would be &lt;em&gt;substantial&lt;/em&gt;. The quality of the Turtle feels an order of magnitude more substantial than the SKX013 when it comes to quality of design, movement, and execution. I know car analogies are usually a bad idea, but this would be like comparing a 2019 Mazda 3 to a 2019 Audi A4: the interior and exterior styling on both look fantastic, but there is a definite jump in quality in the look and feel of the Audi.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;I would recommend the Mini Turtle to anyone looking for a more “posh” version of the SKX013 or to someone looking to downsize their “real” Turtle to something more compact. It’s a great one to just throw on casually and the Pepsi bezel gives it that “summer-watch” feel that goes great with jeans and a t-shirt. I’ve said it before and I’ll say it again: you just can’t go wrong with a Seiko.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="note"&gt;&lt;a href="#top"&gt;↑ Back to top&lt;/a&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- ARTICLE 3 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;article id="skx013"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="article-head"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Seiko SKX013&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="specs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;38 mm case&lt;/span&gt;&lt;span&gt;20 mm lug width&lt;/span&gt;&lt;span&gt;13 mm thick&lt;/span&gt;&lt;span&gt;44 mm lug-to-lug&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Hardlex&lt;/span&gt;&lt;span&gt;200 m water resistance&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img class="article-img" src="images/seiko-skx013.jpg" alt="Seiko SKX013 photo" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Hydrophobes welcomed&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Even the most hydrophobic enthusiast needs a dive watch in their rotation, and Seiko arguably offers the most value in this segment. Having owned the elusive Orient 2ER00001B as my first submergible and finding it just a bit too large for my wrists, I regrettably sold it and explored alternatives.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;007 vs 013&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;You can’t talk entry-level automatic dive watches without the Seiko SKX007, but at around 42 mm I thought it would wear too large for my taste. Enter the SKX013: the baby brother to the 007. Aside from the unavoidable scaling down that is necessary with case size and dial proportions, the only notable aesthetic difference between the two is the seconds hand: the 007 wields a lollipop style while the 013 displays a more modest arrow design. Personally, I prefer the lollipop style hand as it matches the indices a bit better, but it mostly comes down to personal taste, as both offer superb balance to the no-nonsense dial design that is underappreciated with dive watches (I’m looking at you, wordy Submariners).&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Orient vs Seiko&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Other watches I’d considered in this segment were from Orient; both the Mako and Ray are tempting offerings from a solid company that operates within the same parent organization as Seiko. A case could be made for either one, but ultimately for me it came down to size. Had it been between an Orient and the 007, I have a feeling that one of the Mako variants with an upgraded movement with the added ability to manually wind and hack would have prevailed. An important factor to me is a movement’s ability to be hand-wound – a feature I still miss in my 013. One other nicety that the SKX lacks is the framed day/date window that polishes up the Mako’s aesthetic, making it a bit more grown-up and classy.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Fast and loose&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;My experience with the SKX013 has been mediocre at best, but I still find myself putting it on my wrist more than any other casual watch in my collection. At about +45.4 seconds per day (according to Toolwatch.io) it runs far too fast to keep it moving for more than a few days at a time which can be frustrating.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;After about 2 years, the rotor came loose which prompted me to have to remove the case back and tighten it up with a small screwdriver. Though it wasn’t a big deal, I wasn’t particularly keen on opening it up, as I occasionally wear this while swimming and performing maintenance on my saltwater aquarium. Fortunately, its water resistance does not appear to have been compromised. Though I do tend to wear this watch while running, it was surprising for that to happen so soon after purchase. But ultimately, not a big deal, as watches are meant to be worn.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;A permanent piece&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;The SKX watches pair wonderfully with the perlon straps that Eulit offers. I find them to suit the watches aesthetically as well as functionally, as they are far more breathable in the summer than anything else I’ve tried. I originally purchased it with the included jubilee bracelet, but knew even before it shipped that I would sell it, as I’m just not a big fan of bracelets in general. I could have opted for the rubber band, but they were out of stock at Long Island Watch, which is where I ordered from.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Overall I would absolutely recommend this watch to anyone who wants to throw something on and not have to worry about it getting beat up. Loose rotor issue aside, it’s a robust watch that looks good enough to wear to a casual restaurant as well as swim with at the beach. Seiko certainly got it right with the SKX series, and my collection would undoubtedly be incomplete without one.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="note"&gt;&lt;a href="#top"&gt;↑ Back to top&lt;/a&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- ARTICLE 4 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;article id="awci-boston"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="article-head"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Build a Watch Event – AWCI Boston, MA&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="specs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;44 mm case&lt;/span&gt;&lt;span&gt;22 mm lug width&lt;/span&gt;&lt;span&gt;Mineral crystal&lt;/span&gt;&lt;span&gt;30 m water resistance&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;18,000 bph&lt;/span&gt;&lt;span&gt;46 hr power reserve&lt;/span&gt;&lt;span&gt;ETA 6497&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img class="article-img" src="images/awci-build-a-watch.jpg" alt="AWCI Build a Watch event photo" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;A journey to Boston&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Hours before the sun rose on a cold February morning, I hopped on board what would be a 13 hour train ride from Erie, PA to Boston, MA. My weekend plan was set in motion after buying a ticket to attend the AWCI-hosted “Build a Watch” event I’d discovered on EventBrite a month prior.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;From reading about the event, I knew three things:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;1. I’d be building a 44 mm flieger style watch&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">         </span>2. I’d be assembling a hand-wound ETA 6497 movement&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">         </span>3. Lunch would be provided&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">         </span>Free lunch? Even if this went horribly wrong at least I’d get a good meal.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Saturday&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;After the same car alarm interrupted my sleep several times throughout the night, I woke up just minutes before my real alarm was set and tediously unwrapped the dry-out-your-skin mini hotel soap and took a shower. I got dressed, strapped on my Omega Speedmaster, and ordered an egg and cheese croissant with a cup of black coffee from the hotel cafe.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;After paying my bill I braved the frigid Boston wind wearing my black peacoat and snugly-tied blue scarf. I walked a mere block and a half to the WeWork building where the class was to be held and was warmly greeted by a locked door. Luckily, this turned out to be a great opportunity to meet a few of the other punctual members of the class.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Once we were welcomed in, we rode the elevator to the third floor, passed through a set of french doors, and leisurely chose where we would sit for the next 8 hours. I settled into the front row window seat, figuring I’d get a bit more natural light that way. Atop each workstation was a watchmaker’s bench, a Bergeon tool set, and a pillbox full of tiny parts that were conveniently organized in the order of assembly.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Bluetooth remote in-hand, Aaron began to sift through a presentation, each slide illustrating a tiny piece of how, by the time the sun set, we were to transform these raw metal bits into a sophisticated portable pendulum. Each step was carefully explained while the watchmakers roamed the room checking our work and helping us out in any way they could.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Right before lunch we were told that the watchmakers were going to lubricate some hard-to-reach parts for us while we were eating. We had oiled a few pieces earlier but this step was apparently a bit more intricate. Expectedly, no one protested.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;After lunch we finished up the movement and would move on to choosing a case. Unfortunately this was our only bit of customization (new classes offer a variety of dials and hands to choose from), so we all made our decisions carefully. I chose the black PVD for two reasons: the first being that I did not have any in my collection, and the second being I felt it might wear a bit smaller, even though I knew this would be a watch that would be far too large for my wrist.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;We attached the hands to the dial and then carefully placed the movement into the case. Once the crown was attached, we were able to insert the gasket and screw down the clear case back. I, stupidly, did not remove the gasket properly and had to get a replacement that was not stretched into a weird droopy oval shape.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Timegrapher machines were distributed to us and were plugged in to laptops. These amazingly compact devices rotated the watch into different positions, all the while listening with a little microphone to see how accurate the movement was. Armed with this information, we were able to calibrate and see how close we were in real time, ensuring we would get it into spec (-5/+ 15 seconds per day). Mine ended up being around +2 seconds, which is quite good.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Just before the last step where we were to put the completed piece in the water pressure tester, I wound mine up and felt a snap. Apparently something came loose and I immediately knew I needed help. I was assisted by one of the watchmakers who saved my life and was able to repair whatever I had screwed up. After that little crisis it was around 6:00 and my watch passed the 30 meter water resistance test. I helped clean up and left with a fully assembled and working timepiece.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Reflections&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;The most surprising takeaway from my experience was that the movement we worked with was large, even by modern standards, meaning I can’t even imagine the amount of precision involved in manipulating smaller movements. I have a respect for watchmakers that I’d only had in theory before. Actually doing the work made me realize how intricate everything is and how much control one needs to have over one’s hands and mind.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;The most difficult time I had was lubricating parts. In some situations, we’d have to hold a part with tweezers in one hand while applying lubrication with the other. The challenge was twofold: scooping up the exact amount of lubrication on a microscopic shovel, and then applying said lubrication to the exact area of the part all while looking through a loupe. The first gear I lubricated took me a couple of tries, as I’d applied too much resulting in it dripping down into a pinion. The second time I didn’t apply enough (I was gun shy)… and the third time, well, I got lucky.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;All in all it was an incredible experience and quite a bit of work that required 100% focus. The three watchmakers that ran the classroom were amazing and had unlimited amounts of patience. I am confident that I would NOT have left with a working watch without them.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="note"&gt;(Note: I am NOT affiliated with the AWCI, I am merely a student who wanted to share my experience.)&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#top"&gt;↑ Back to top&lt;/a&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- ARTICLE 5 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;article id="hamilton-khaki"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="article-head"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Hamilton Khaki Field Mechanical H69439411&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="specs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;38 mm case&lt;/span&gt;&lt;span&gt;20 mm lug width&lt;/span&gt;&lt;span&gt;10 mm thick&lt;/span&gt;&lt;span&gt;47 mm lug-to-lug&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Sapphire&lt;/span&gt;&lt;span&gt;50 m water resistance&lt;/span&gt;&lt;span&gt;80 hr power reserve&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img class="article-img" src="images/hamilton-khaki-white.jpg" alt="Hamilton Khaki Field Mechanical H69439411 photo" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;The absence of color&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Back in March of 2019, I’d read on Hodinkee and Worn and Wound that Hamilton was to release a white-dialed Khaki Field Mechanical watch that was available for pre-order exclusively at Topper’s. Since I work in a business environment and am pretty much set on dress pieces (famous last words), the release caught my interest, but I didn’t put much thought into it. As the weeks went by, it kept popping up in my brain as something I might like to try. It was like the Seinfeld episode where George gets stuck in that girl’s brain: “Co-stan-za!” to the tune of “By Mennen!”&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Ruggedly handsome&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Inspired in part by how classically cool John Lennon looked with his Vietnam gear in the 70s and how rough Hank Moody from Californication comes off, I decided that I needed something a bit more rugged. Because then I’d totally be as cool as those guys, right?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Every so often, I like to force myself out of my comfort zone to try something new; my collection mostly revolves around dark-dialed watches like the Speedmaster, some Seiko divers, and a blue vintage Tissot that I tend to favor more than anything, but I wanted something different for summer; something I could wear with polos, jeans, and tan suede chukkas. It only made sense for me to pre-order the white-dialed Khaki Field with a green NATO strap – which suits it perfectly, by the way.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Liquid courage&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;After ruminating about it for a few weeks and, admittedly following a few glasses of dry red wine, I worked up the courage to put down the $200 deposit. It was well worth it to quell the voices in my head; sometimes you just have to remind yourself that life is short – just do it. And really, it was only a couple hundred bucks.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Topper’s shipped it out a day earlier than anticipated, which was a modest yet delightful surprise. As a delivery signature was required, I missed the first attempt while I was at work that Thursday. I tried to reschedule by pre-signing online with my UPS account, but that option was conveniently “restricted by seller,” so I had no choice but to wait over the weekend until the following Monday when I was able to work from home to sign for it.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;The reveal&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;After the third and final delivery attempt it was finally mine; upon opening the packaging, I was surprised to find a light wood looking box, rather than the ordinary black you see with most Hamiltons. The seams were a little wavy which was a giveaway that it wasn’t real wood, and it felt slightly cheap, but I appreciated the effort. The hinges were just as tight as on any other Hamilton’s I’d unboxed, but the rest of the inside was the usual thin, albeit semi-soft-touch material, which is the minimum expected at this price point. On par with the interior of a Hyundai.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;As one does, I gently lifted the watch off of it’s pillow, removed the retail price tag ($495) and wound it up. The tight feel was as premium as the general aesthetic, and the soft, yet audible clicks were smoothly satisfying. The seconds-hand driven by the H-50 caliber movement was a bit more jaunty than prior versions, but was a worthy trade-off considering its massive 80-hour power reserve. Even if you’re in a hurry and forget to wind up before venturing out, chances are it’s bound to have energy left.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Larger than life&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;As I was winding it up and admiring how the slightly raised numerals on the dial reflected the sunlight, I realized that this was a larger dial than I had anticipated. It is a stunning, unmistakably bright white, but combined with the long lug-to-lug length, it wears much larger than one would think. I know it’s a style thing, but I just think it looks off when paired with the current trend of slim fitting shirts, tight jeans, and short hair. The watch world has simply not caught up to the slim aesthetic of the era. The Khaki Field would undoubtedly wear a bit better if it were 36 mm with a short lug-to-lug length, but what can you do (I know The Urban Gentry agrees – smaller is classier)?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Ultimately, I chose to send this gem back, as it wore much larger than I had anticipated. A field watch should be small, no larger than 37 mm, and this one just doesn’t make the cut for me.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="note"&gt;&lt;a href="#top"&gt;↑ Back to top&lt;/a&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="about"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;About&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span&gt;Optional – edit or remove&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;&lt;strong&gt;Chronomoxy&lt;/strong&gt; is a small personal watch journal. It’s intentionally simple – a place to post a few photos, keep notes on pieces I’ve owned, and write the occasional short essay.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="pillrow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="pill"&gt;chronomoxy.com&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="pill"&gt;© &lt;span id="year"&gt;&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;Tip: if an image filename doesn’t exist yet, the page will show a broken image icon – add your photos to the &lt;span style="font-family:var(--mono)"&gt;/images&lt;/span&gt; folder with the same names used above.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
+<p class="p1">&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Tiny helper for the footer year. Safe to remove.</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("year").textContent = new Date().getFullYear();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
